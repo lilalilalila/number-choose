@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var arr=['100px','abc'-6,[],-98765,34,-2,0,'300', , function(){alert(1);},null,document,[],true,'200px'-30,'23.45元',5,Number('abc'),function(){alert(3);}];
+			
+			var arrA = [];
+			var arrB = [];
+			var arrC = [];
+
+			//提取数字
+			for( var i=0; i<arr.length; i++){
+				if(typeof arr[i] === 'number'){
+					if(isNaN(arr[i]) === false){
+						arrA.push(arr[i]);
+					}
+				}
+			}
+			
+			
+			//转换成数字
+			for( var i=0; i<arr.length; i++){
+				//将arr[i]中的内容，全部逐一转换成数字
+				if(typeof(parseFloat(arr[i])) === 'number'){
+					//只保留其中能转换成数字的内容
+					if(isNaN(parseFloat(arr[i])) === false){
+						arrB.push(arr[i]);
+					}
+				}
+			}
+
+			// 判断最大值
+			var max=0;//假定max为最大值
+			//让max与arrB[i]内的数字逐一比较
+			for( var i=0; i<arrB.length; i++){
+				//当max小于arrB[i]所转换成的数字时，自动赋予max
+				if(max<parseFloat(arrB[i])){ 
+					max = parseFloat(arrB[i]);
+				}
+			}
+			//当max=或是>arrB中的数字时，自动保存在max并且不再执行上边的循环，max就是当前数组中的最大值
+			
+			
+			var d= [];
+			//找出NaN的位置，利用NaN是非数字的数字类型来判断
+			for( var i=0; i<arr.length; i++){
+				//首先判断arr[i]的类型为number，
+				if(typeof(arr[i])==='number'){
+					//找到其中的NaN
+					if(isNaN(arr[i])){
+						//alert(i);
+						d.push(i);
+					}
+				}
+			}
+			alert(d);
+			
+			
+			//利用NaN不等于自身的特性来判断
+			for( var i=0; i<arr.length; i++){
+				if(arr[i] === arr[i]){
+					
+				}else{
+					//alert(i);
+				}
+			}
+			
+		</script>
+	</body>
+</html>
